@@ -49,14 +49,16 @@ app.use("/api/colleges", collegeRoutes);
 const contactRoutes = require("./routes/contactRoutes");
 app.use("/api/contact", contactRoutes);
 
-// ✅ MongoDB connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+const PORT = process.env.PORT || 8000;
+
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
 .then(() => {
   console.log("✅ MongoDB connected");
-  app.listen(8000, () => console.log("✅ Server running on port 8000"));
+
+  app.listen(PORT, () => {
+    console.log("✅ Server running on port", PORT);
+  });
 })
 .catch((err) => {
   console.error("❌ MongoDB connection error:", err);
