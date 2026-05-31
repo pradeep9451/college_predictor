@@ -1,0 +1,605 @@
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(22, 22, 22, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Profile Menu Styles */
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-avatar-letter {
+  width: 40px;
+  height: 40px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.profile-avatar-letter:hover {
+  background-color: #2980b9;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1001;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #e1e8ed;
+}
+
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}
+
+.profile-name {
+  padding: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 1px solid #e1e8ed;
+  background-color: #f8f9fa;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f3f4;
+}
+
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: #e74c3c;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+}
+
+.dropdown-content button:hover {
+  background-color: #fee;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-links {
+    gap: 1rem;
+  }
+  
+  .navbar-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .dropdown-content {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-links {
+    gap: 0.5rem;
+  }
+  
+  .navbar-links a {
+    padding: 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .profile-avatar-letter {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .dropdown-content {
+    min-width: 160px;
+    right: -10px;
+  }
+}
+
+/* Active link styles (optional) */
+.navbar-links a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Focus styles for accessibility */
+.profile-avatar-letter:focus {
+  outline: 2px solid #74b9ff;
+  outline-offset: 2px;
+}
+
+.dropdown-content a:focus,
+.dropdown-content button:focus {
+  background-color: #e3f2fd;
+  outline: none;
+}
+
+/* Add these styles to your existing Navbar.css */
+/* Add these styles to your existing Navbar.css */
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #363636;
+  margin: 3px 0;
+  transition: 0.3s;
+  transform-origin: center; 
+}
+
+/* Hamburger animation when active */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Desktop Navigation - hide mobile nav on desktop */
+.desktop-nav {
+  display: flex;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 60px; /* Adjust based on your navbar height */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  flex-direction: column;
+  padding: 20px;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-nav.active {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-nav a {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav a:hover {
+  color: #007bff;
+}
+
+.mobile-profile-section {
+  border-top: 2px solid #eee;
+  padding-top: 15px;
+  margin-top: 10px;
+}
+
+.mobile-profile-name {
+  font-weight: bold;
+  color: #333;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-profile-section a,
+.mobile-profile-section button {
+  display: block;
+  padding: 12px 0;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 16px;
+  color: #373636;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.mobile-profile-section button:hover {
+  color: #dc3545;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+  
+  .desktop-nav {
+    display: none;
+  }
+  
+  .navbar {
+    justify-content: space-between;
+  }
+}
+
+/* Hide mobile menu on desktop */
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none !important;
+  }
+  
+  .hamburger-menu {
+    display: none !important;
+  }
+}
+
+/* Dark theme for hamburger if needed */
+@media (prefers-color-scheme: dark) {
+  .hamburger-line {
+    background-color: #fff;
+  }
+  
+  .mobile-nav {
+    background-color: #292c43;
+    color: #fff;
+  }
+  
+  .mobile-nav a {
+    color: #fff;
+    border-bottom-color: #555;
+  }
+  
+  .mobile-profile-section {
+    border-top-color: #555;
+  }
+  
+  .mobile-profile-name {
+    color: #fff;
+    border-bottom-color: #555;
+  }
+  
+  .mobile-profile-section a,
+  .mobile-profile-section button {
+    color: #fff;
+  }
+}
+
+/* Search Bar Styles */
+
+/* Main search container */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+  margin: 0 2rem;
+}
+
+/* Search input wrapper */
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Search input field */
+.college-search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.college-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.college-search-input:focus {
+  border-color: #3498db;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Search icon */
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.college-search-input:focus + .search-icon {
+  color: #3498db;
+}
+
+/* Search results dropdown */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1002;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #e1e8ed;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Individual search result item */
+.search-result-item {
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* College name in search results */
+.college-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* College location in search results */
+.college-location {
+  color: #7f8c8d;
+  font-size: 0.875rem;
+}
+
+/* No results message */
+.no-results {
+  padding: 1rem;
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Mobile search container */
+.mobile-search-container {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+/* Mobile search input adjustments */
+.college-search-input.mobile {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e1e8ed;
+}
+
+.college-search-input.mobile::placeholder {
+  color: #7f8c8d;
+}
+
+.college-search-input.mobile:focus {
+  border-color: #3498db;
+  background-color: white;
+}
+
+.mobile-search-container .search-icon {
+  color: #7f8c8d;
+}
+
+.college-search-input.mobile:focus + .search-icon {
+  color: #3498db;
+}
+
+/* Mobile search results */
+.search-results.mobile {
+  position: static;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-container {
+    display: none; /* Hide desktop search on mobile */
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-search-container {
+    display: none; /* Hide mobile search on desktop */
+  }
+}
+
+/* Smaller screens adjustments */
+@media (max-width: 1200px) {
+  .search-container {
+    max-width: 300px;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-container {
+    max-width: 250px;
+    margin: 0 0.5rem;
+  }
+  
+  .college-search-input {
+    font-size: 0.9rem;
+    padding: 0.625rem 2rem 0.625rem 0.875rem;
+  }
+}
+
+/* Focus and accessibility improvements */
+.search-result-item:focus {
+  background-color: #e3f2fd;
+  outline: 2px solid #3498db;
+  outline-offset: -2px;
+}
+
+/* Loading state (optional) */
+.search-results.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.search-loading {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Animation for search results appearance */
+.search-results {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Highlight matching text (if implemented) */
+.highlight {
+  background-color: #fff3cd;
+  font-weight: 600;
+}
+
+/* Custom scrollbar for search results */
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

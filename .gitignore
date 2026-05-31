@@ -1,0 +1,19 @@
+# Node modules
+node_modules
+frontend/node_modules
+node-backend/node_modules
+
+# Environment files
+.env
+frontend/.env
+node-backend/.env
+backend/.env
+
+# React build
+frontend/build
+
+# Uploads
+node-backend/uploads
+
+# ML backend ignore (whole folder)
+backend/
